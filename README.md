@@ -35,28 +35,38 @@ To integrate and program temperature and accelerometer sensors in an embedded sy
 •	Print the final temperature and acceleration values.
  
 ## MATLAB CODE 
+## MATLAB CODE
 
+```matlab
 clear; clc; close all;
 
 t = linspace(0,10,100);
-temp = 25 + 5*sin(0.5*t);
-x = 0.5*sin(2*t); y = 0.3*cos(2*t); z = 9.81 + 0.1*sin(t);
 
-figure;
+temp = 25 + 5*sin(0.5*t);
+
+x = 0.5*sin(2*t);
+y = 0.3*cos(2*t);
+z = 9.81 + 0.1*sin(t);
+
 subplot(2,1,1);
 plot(t,temp,'r','LineWidth',2);
 title('Battery Temperature Monitoring');
-xlabel('Time (s)'); ylabel('Temperature (°C)'); grid on;
+xlabel('Time (s)');
+ylabel('Temperature (°C)');
+grid on;
 
 subplot(2,1,2);
 plot(t,x,'b',t,y,'g',t,z,'m','LineWidth',2);
 title('Vehicle Motion Tracking (Accelerometer)');
-xlabel('Time (s)'); ylabel('Acceleration (m/s²)');
-legend('X-axis','Y-axis','Z-axis'); grid on;
+xlabel('Time (s)');
+ylabel('Acceleration (m/s²)');
+legend('X-axis','Y-axis','Z-axis');
+grid on;
 
 fprintf('Simulated Data at Final Time (t=10s):\n');
 fprintf('Battery Temperature: %.2f°C\n',temp(end));
 fprintf('Acceleration (X, Y, Z): %.2f, %.2f, %.2f m/s²\n',x(end),y(end),z(end));
+```
 
 ## OUTPUT
 <img width="1917" height="1015" alt="image" src="https://github.com/user-attachments/assets/f2ca05a6-755b-45ff-97c3-ac96212acc45" />
